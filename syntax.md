@@ -8,18 +8,21 @@ end
 ```
 
 ## Function with paramaters
-```func my(arg1, arg2) 
+```
+func my(arg1, arg2) 
   ...
 end
 ```
 
 ## Elliptical paramaters
-```func my(arg1, arg2, ...others)
+```
+func my(arg1, arg2, ...others)
   ...
 end
 ```
 
-```func my(...others, argN)
+```
+func my(...others, argN)
   ...
 end
 ```
