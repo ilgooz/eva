@@ -1,20 +1,20 @@
 # Functions
 
-## Function without paramaters
+### Function without paramaters
 ```
 func my
   ...
 end
 ```
 
-## Function with paramaters
+### Function with paramaters
 ```
 func my(arg1, arg2) 
   ...
 end
 ```
 
-## Elliptical paramaters
+### Elliptical paramaters
 ```
 func my(arg1, arg2, ...others)
   ...
@@ -27,7 +27,7 @@ func my(...others, argN)
 end
 ```
 
-## Inline function
+### Inline function
 ```
 func my: ...
 ```
@@ -36,7 +36,7 @@ func my: ...
 func my(arg): ...
 ```
 
-## Functions can return multiple values
+### Functions can return multiple values
 ```
 func my(num)
   num++
@@ -50,7 +50,7 @@ func my(num): num++; return "my", num
 
 # Structs
 
-## Simple
+### Simple
 ```
 struct my {
   name,
@@ -62,11 +62,11 @@ struct my {
 ```
 var me: my{"ilker", 20}
 ```
-// or
+or
 ```
 var me: my{name: "ilker", Age: 20}
 ```
-// you can also add params subsequently
+you can also add params subsequently
 ```
 var me: my{
   name: "ilker",
@@ -76,7 +76,7 @@ var me: my{
 }
 ```
 
-## Extended
+### Extended
 ```
 struct puppy {
   toy {
@@ -86,10 +86,10 @@ struct puppy {
 }
 ```
 
-## structs can have methods
+### Structs can have own methods
 ```
 func puppy:love
-  ...
+  print("heart")
 end
 
 func puppy:say(word)
@@ -98,6 +98,7 @@ end
 
 var dog: puppy{toy: {color: "red"}}
 dog.say("love you")
+dog.love()
 ```
 
 # JSON
