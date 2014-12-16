@@ -1,57 +1,64 @@
 # Functions
 
 ### Function without paramaters
-```
+```ruby
 func my
   ...
 end
 ```
 
 ### Function with paramaters
-```
+```ruby
 func my(arg1, arg2) 
   ...
 end
 ```
 
-### Elliptical paramaters
+### Function with default paramater
+```ruby
+func my(anum: 12) 
+  ...
+end
 ```
+
+### Elliptical paramaters
+```ruby
 func my(arg1, arg2, ...others)
   ...
 end
 ```
 
-```
+```ruby
 func my(...others, argN)
   ...
 end
 ```
 
 ### Inline function
-```
+```ruby
 func my: ...
 ```
 
-```
+```ruby
 func my(arg): ...
 ```
 
 ### Functions can return multiple values
-```
+```ruby
 func my(num)
   num++
   return "my", num
 end
 ```
 
-```
+```ruby
 func my(num): num++; return "my", num
 ```
 
 # Structs
 
 ### Simple
-```
+```ruby
 struct my {
   name,
   Age, // public
@@ -59,15 +66,15 @@ struct my {
 }
 ```
 
-```
+```ruby
 var me: my{"ilker", 20, "tr"}
 ```
 or
-```
+```ruby
 var me: my{name: "ilker", Age: 20}
 ```
 you can also add params subsequently
-```
+```ruby
 var me: my{
   name: "ilker",
   Lastname: "öztürk", // added as public
@@ -77,7 +84,7 @@ var me: my{
 ```
 
 ### Recursive
-```
+```ruby
 struct puppy {
   toy {
     color,
@@ -87,7 +94,7 @@ struct puppy {
 ```
 
 ### They can have rules
-```
+```ruby
 struct Person {
   name      `json:name`
   lang "en" `json:more.lang`
@@ -95,7 +102,7 @@ struct Person {
 ```
 
 ### They can have methods
-```
+```ruby
 func puppy:love
   print("heart")
 end
@@ -110,13 +117,13 @@ dog.love()
 ```
 
 # Packages
-```
+```ruby
 import "json"
 import "https://github.com/ilgooz/uniqe-id" as uid
 ```
 
 # JSON
-```
+```ruby
 var jstring = `{"name": "ilker", "more": {"lang": "tr"}}`
 var me: new Person
 err = json.Decode(jstring, &me)
