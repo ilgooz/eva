@@ -55,12 +55,12 @@ func my(num): num++; return "my", num
 struct my {
   name,
   Age, // public
-  lang: "tr" // default val
+  lang "tr" // default val
 }
 ```
 
 ```
-var me: my{"ilker", 20}
+var me: my{"ilker", 20, "tr"}
 ```
 or
 ```
@@ -70,23 +70,31 @@ you can also add params subsequently
 ```
 var me: my{
   name: "ilker",
-  Lastname: "öztürk", // public
+  Lastname: "öztürk", // added as public
   Age: 20,
   lang: ("tr", "en")
 }
 ```
 
-### Extended
+### Recursive
 ```
 struct puppy {
   toy {
     color,
-    weight
+    weight: 250
   }
 }
 ```
 
-### Structs can have own methods
+### They can have rules
+```
+struct Person {
+  name      `json:name`
+  lang "en" `json:more.lang`
+}
+```
+
+### They can have methods
 ```
 func puppy:love
   print("heart")
@@ -101,4 +109,16 @@ dog.say("love you")
 dog.love()
 ```
 
+# Packages
+```
+import "json"
+import "https://github.com/ilgooz/uniqe-id" as uid
+```
+
 # JSON
+```
+var jstring = `{"name": "ilker", "more": {"lang": "tr"}}`
+var me: new Person
+err = json.Decode(jstring, &me)
+print(err, me)
+```
