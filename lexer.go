@@ -1,13 +1,5 @@
 package main
 
-/* var i = 0; print(i)
-
-t: t_var, v: i
-t: t_idn, v:
-
-
-*/
-
 import (
 	"errors"
 	"fmt"
@@ -87,7 +79,6 @@ func (l *Lexer) scan() (*Token, error) {
 		if char {
 			return l.ki()
 		}
-
 		return token, errors.New(fmt.Sprintf("eva error: Illegal char %s at %d:%d", c, l.r.line, l.r.col))
 	}
 
@@ -116,9 +107,12 @@ func (l *Lexer) numeric() (*Token, error) {
 			if err != nil {
 				return token, err
 			}
+		} else {
+			break
 		}
-		return token, nil
 	}
+
+	return token, nil
 }
 
 // Dedect keyword/identifier
@@ -157,9 +151,12 @@ func (l *Lexer) ki() (*Token, error) {
 			if err != nil {
 				return token, err
 			}
+		} else {
+			break
 		}
-		return token, nil
 	}
+
+	return token, nil
 }
 
 func isDigit(s string) bool {

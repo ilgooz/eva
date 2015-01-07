@@ -1,2 +1,5 @@
 run:
-	go run *.go
+	go run `ls *.go | grep -v _test.go`
+
+test:
+	go test

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	a := bufio.NewReader(bytes.NewReader([]byte("var i = 0; print(i)")))
+	a := bufio.NewReader(bytes.NewReader([]byte("var i = 10; print(i)")))
 	r := NewReader(a)
 	t := NewLexer(r)
 	s, err := t.Scan()
