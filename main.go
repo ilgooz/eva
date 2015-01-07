@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	"github.com/kr/pretty"
 	"io"
+
+	"github.com/kr/pretty"
 )
 
 func main() {
-	a := bufio.NewReader(bytes.NewReader([]byte("var i = 10; print(i)")))
+	a := bufio.NewReader(bytes.NewReader([]byte("var i")))
 	r := NewReader(a)
 	t := NewLexer(r)
 	s, err := t.Scan()
